@@ -19,8 +19,6 @@ Funções do UDP:
  - Atua como uma interface da aplicação com o IP para multiplexar e desmultiplexar tráfego;
  - Usa o conceito de porta/número de porta;
  - Utilizado em situações que não justificam o TCP, ou quando as aplicações querem controlar o fluxo de dados e gerir erros de transmissão diretamente;
- 
-![UDP](img/desUDP.png)
 
 Uma aplicação pode escolher o UDO devido a vários motivos:
 
@@ -49,4 +47,4 @@ Funções do TCP:
  - Multiplexa os dados de várias aplicações através de numero de porta;
  - Efetua controlo de erros, controlo de fluxo e controlo de congestão;
 
-![TCP](img/TCP.png)
+![TCP](img/TCP_data.png)
