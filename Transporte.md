@@ -78,6 +78,7 @@ Flags TCP (1 bit por flag):
 **SampleRTT** - medido desde a transmissao de um segmento até a recepção do ACK respetivo;
 **Timeout** - quanto maior for a diferença entre os SampleRTT e o EstiimatedRTT, maior será o valor do timeout;
 
+### Gestão de ACK's
 |  Evento no Receptor| Ação da entidade TCOA |
 |:---:|:---:|
 | Chegada de um segmento com o numero de sequencia esperado e tudo tras confirmado | Atrasa envio ACK 500ms para verificar se chega novo segmento.Senão chegar, enviar ACK |
@@ -85,3 +86,12 @@ Flags TCP (1 bit por flag):
 |  Chegada de um segmento com o numero de sequencia superior ao esperado. Buraco detectado | Envia imediatamente um ACK duplicado indicando o numero de sequencia esperado |
 | Chegada de um segmento segmento que preenche completa ou imcompletamente um buraco | Se o numero do segemento coincidir com o limite inferior do buraco envia ACK imdiatamente. |
 
+Se o emissor receber *três* ACK's duplicados supôe que o segmento respetivo foi perdido e retransmite - o **Fast Retransmit**.
+
+**Fast Recovery** - O Fast Recovery, em conjunto com o Fast Retransmit, é uma prática recomendada, mas não obrigatória, no contexto de transmissão de dados. Ao receber ACK's duplicados, temporariamente amplia-se a janela em 1 MSS por ACK duplicado, permitindo a continuidade di envio sem ajustar a janela. AO receber ACK em falta ou um ACK cumulativo que abranja o ACK em falta, o sistema sai do estado de recuperação rápida. Essa abordagem contribui para a eficiência na recuperação de perdas de dados durante a transmissão.
+
+### Controlo de Fluxo
+
+**AIMD (Additive Increase/Multiplicative Decrease)** - O algoritmo aumenta a janela de congestão após cada Ack esperado e a reduz pela metade em caso de Ack duplicado. Essa abordagem promove um crescimento gradual e uma reação mais agressiva à congestão, contribuindo para o controle eficiente de fluxo em redes.
+
+**Slow Start** -
