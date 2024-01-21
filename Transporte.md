@@ -48,3 +48,14 @@ Funções do TCP:
  - Efetua controlo de erros, controlo de fluxo e controlo de congestão;
 
 ![TCP](img/TCP_data.png)
+
+ - <u>Porta Orig/Dest</u> - Nª da porta TCP da aplicação de Origem/Destino;
+ - <u>Numero de Sequência</u> - Ordem do primeiro octeto de dados no segmento (se SYN=1, este número é o initial sequence number, ISN);
+ - <u>Numero de Ack(32 bits)</u> - O numero de ordem do octeto seguinte na sequência que a entidade TCP espera receber;
+ - <u>Comprimento Cabeçalho(4 bits)</u> - Numero de palavras de 32 bits de cabeçãlho;
+ - <u>Flags(6 bits)</u> - Indicações especificas;
+ - <u>Janela</u> - Numero de octetos que o receptor é capaz de receber (controlo de fluxo);
+ - <u>Soma de controlo (16bits)</u> - Soma para a deteção de erros (segm);
+ - <u>Apontador urgente</u> - Adicionado ao numero de sequencia da o nº de sequencia do ultimo otecto de dados urgentes;
+ - <u>Opções</u> - Especifica caracteristicas opcionais (ex: MSS, timestamp, factor de escala para a janela, etc.);
+
