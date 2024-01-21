@@ -36,6 +36,8 @@ Uma aplicação pode escolher o UDO devido a vários motivos:
 
  - **Menor overhead por pacote:** O cabeçalho UDP é mais leve, com apenas 8 bytes, reduzindo a sobrecarga em comparação com o TCP.
 
+Aplicações escolhem o UDP devido ao maior controle sobre o envio de dados, permitindo à aplicação decidir quando e como enviar ou reenviar dados sem depender do transporte. A fuga ao controle de congestão do TCP e a capacidade de determinar a quantidade de bytes enviados por vez são vantagens. Além disso, a ausência de estabelecimento e terminação de conexão, juntamente com a falta de necessidade de manter informações de estado, resultam em menor overhead por pacote, dado o cabeçalho UDP ser apenas 8 bytes.
+
 
 ## Protocolo TCP - Transmission Control Protocol
 
@@ -47,14 +49,4 @@ Funções do TCP:
  - Multiplexa os dados de várias aplicações através de numero de porta;
  - Efetua controlo de erros, controlo de fluxo e controlo de congestão;
 
-| Ação            | Emissor (Aplicação)               | Camada de Rede | Recetor (Aplicação)                |
-|-----------------|-----------------------------------|-----------------|------------------------------------|
-| Iniciar         | Aplicação A                       | -               | Aplicação B                        |
-| Segmentação     | Aplicação A divide a mensagem      | -               |                                    |
-|                 | em segmentos e envia para a        |                 |                                    |
-|                 | camada de rede                      |                 |                                    |
-| Transmissão     | Camada de Rede envia os segmentos | -               |                                    |
-| Receção         | -                                 | Camada de Rede | Recebe os segmentos da camada de   |
-|                 |                                   |                 | rede e os entrega à aplicação B    |
-| Reagrupamento   | -                                 |                 | Aplicação B reagrupa os segmentos  |
-|                 |                                   |                 | para reconstruir a mensagem        |
+![TCP](img/TCP.png)
