@@ -16,5 +16,8 @@ HTTP é um protocolo de aplicação que roda sobre o protocolo de transporte TCP
  - Servidor mantém conexão TCP aberta;
  - Com ou sem estrtégia de pipelining;
 
-#### Sem pipelining
- 
+| Sem Pipelining | Com Pipelining |
+|:---:|:---:|
+| O cliente envia um novo pedido apenas quando recebe a responta ao anterior | Modo por defeito no HTTP/1.1 |
+| No cenario mais otimista consome-se um RTT por cada objeto | O cliente envia os pedidos assim que os encontrar no objeto referenciador |
+|  | No cenario mais otimista consome-se um RTT para todos os objetos |
