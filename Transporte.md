@@ -47,6 +47,7 @@ Funções do TCP:
  - Multiplexa os dados de várias aplicações através de numero de porta;
  - Efetua controlo de erros, controlo de fluxo e controlo de congestão;
 
+### TCP - Datagrama
 ![TCP](img/TCP_data.png)
 
  - <u>Porta Orig/Dest</u> - Nª da porta TCP da aplicação de Origem/Destino;
@@ -58,4 +59,22 @@ Funções do TCP:
  - <u>Soma de controlo (16bits)</u> - Soma para a deteção de erros (segm);
  - <u>Apontador urgente</u> - Adicionado ao numero de sequencia da o nº de sequencia do ultimo otecto de dados urgentes;
  - <u>Opções</u> - Especifica caracteristicas opcionais (ex: MSS, timestamp, factor de escala para a janela, etc.);
+
+### Flags
+Flags TCP (1 bit por flag):
+ **URG** - indica se o apontador de urgência é válido
+ **ACK** - indica se o nº de sequência de confirmação é válido
+ **PSH** - o recetor deve passar imediatamente os dados à aplicação (aparece nos seg de transferência de dados)
+ **RST** - indica que a conexão TCP vai ser reinicializada
+ **SYN** - indica que os números de sequência devem ser sincronizados para se iniciar uma conexão
+ **FIN** - indica que o transmissor terminou o envio de dados
+
+### Formulas
+<u>EstimatedRTT</u> = (1 - a) * EstimatedRTT + a * SampleRTT   (nomalmente a = 0.125)
+<u>DevRTT</u> = (1 - b) * DevRTT + b * |SampleRTT - EstimatedRTT|   (normalmente b = 0.25)
+<u>TimeoutInterval</u> = EstimatedRTT + 4 * DevRTT
+
+**EstimatedRTT** - media movel de peso exponencial onde a importancia de uma amostra antiga decresce exponencialmente;
+**SampleRTT** - medido desde a transmissao de um segmento até a recepção do ACK respetivo;
+**Timeout** - quanto maior for a diferença entre os SampleRTT e o EstiimatedRTT, maior será o valor do timeout;
 
