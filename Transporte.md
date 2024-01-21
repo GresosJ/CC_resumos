@@ -78,3 +78,10 @@ Flags TCP (1 bit por flag):
 **SampleRTT** - medido desde a transmissao de um segmento até a recepção do ACK respetivo;
 **Timeout** - quanto maior for a diferença entre os SampleRTT e o EstiimatedRTT, maior será o valor do timeout;
 
+|  Evento no Receptor| Ação da entidade TCOA |
+|:---:|:---:|
+| Chegada de um segmento com o numero de sequencia esperado e tudo tras confirmado | Atrasa envio ACK 500ms para verificar se chega novo segmento.Senão chegar, enviar ACK |
+| Chegada de um segmento com o número de sequencia esperado e um segmento por confirmar | Envia imediatamente um ACK cumulativo que confirma os dois segmentos |
+|  Chegada de um segmento com o numero de sequencia superior ao esperado. Buraco detectado | Envia imediatamente um ACK duplicado indicando o numero de sequencia esperado |
+| Chegada de um segmento segmento que preenche completa ou imcompletamente um buraco | Se o numero do segemento coincidir com o limite inferior do buraco envia ACK imdiatamente. |
+
