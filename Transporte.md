@@ -94,4 +94,8 @@ Se o emissor receber *três* ACK's duplicados supôe que o segmento respetivo fo
 
 **AIMD (Additive Increase/Multiplicative Decrease)** - O algoritmo aumenta a janela de congestão após cada Ack esperado e a reduz pela metade em caso de Ack duplicado. Essa abordagem promove um crescimento gradual e uma reação mais agressiva à congestão, contribuindo para o controle eficiente de fluxo em redes.
 
-**Slow Start** -
+**Slow Start** - O Slow Start, no início da conexão, inicia com uma janela de congestão de 1 MSS. A cada ACK recebido, a janela aumenta exponencialmente até a detecção da primeira perda ou atingir um patamar de congestão. No TCP Reno, perdas por timeout reiniciam o Slow Start, enquanto perdas por ACKs duplicados levam a uma retoma linear da janela. No TCP Tahoe, em ambos os casos, a janela volta a 1 MSS, reiniciando o Slow Start.
+
+**Congestion Avoidance** - Na fase de Congestion Avoidance, o Slow Start avança até a detecção de perda ou atingir um threshold, momento em que a janela de congestão passa a crescer linearmente. Em casos de timeout, ao reiniciar o Slow Start, o threshold é reduzido pela metade em relação ao tamanho atual da janela. Essa abordagem contribui para a estabilidade e eficiência do controle de congestão em redes TCP.
+
+![Janela de Congestão](img/DiagramaCong.png)
