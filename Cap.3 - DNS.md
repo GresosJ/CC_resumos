@@ -17,3 +17,11 @@
  - Funciona como um proxy, redirecionando a query para a gierarquia quando necessário, designa-se forwarder;
  - Faz caching;
 
+## Resolução de um nome
+**Modo iterativo**: servidor contactado responde com o nome do proximo servidor a contactar;
+
+![Modo iterativo](img/ModoIterativo.png)
+
+**Modo recursivo**: coloca o fardo da resolução no servidor de nomes contactado;
+
+![Modo recursivo](img/ModoRecursivo.png)
