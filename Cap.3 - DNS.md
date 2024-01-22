@@ -25,3 +25,27 @@
 **Modo recursivo**: coloca o fardo da resolução no servidor de nomes contactado;
 
 ![Modo recursivo](img/ModoRecursivo.png)
+
+## DNS resource records (RR)
+Formato RR: (name, value, type, ttl)
+
+Type = A :
+ - *name* é o nome de um host:
+ - *value* é o endereço IP do host;
+
+Type = MX :
+ - *name* é o nome de um domínio;
+ - *value* é o nome do servidor de email associado;
+
+Type = NS :
+    - *name* é o nome de um domínio;
+    - *value* é o nome do host do servidor DNS autoritativo para o dominio;
+
+Type = CNAME :
+ - *name* é um alias (nome alternativo) para outro nome canónico, www.dn.pt é na realidade dn.sapot.pt;
+ - *value* é o nome canónico (real);
+
+## Protocolo DNS
+Duas mensagens (query e reply) exatamente com o mesmo formato;
+
+![Protocolo DNS](img/DNSProtocol.png)
