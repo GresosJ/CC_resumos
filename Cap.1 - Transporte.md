@@ -51,7 +51,7 @@ Funções do TCP:
 ![TCP](img/TCP_data.png)
 
  - *Porta Orig/Dest* - Nª da porta TCP da aplicação de Origem/Destino;
- - *Numero de Sequência* - Ordem do primeiro octeto de dados no segmento (se SYN=1, este número é o initial sequence number, ISN);
+ - *Numero de Sequência* - Ordem do primeiro octeto de dados no segmento (se SYN -1, este número é o initial sequence number, ISN);
  - *Numero de Ack(32 bits)* - O numero de ordem do octeto seguinte na sequência que a entidade TCP espera receber;
  - *Comprimento Cabeçalho(4 bits)* - Numero de palavras de 32 bits de cabeçãlho;
  - *Flags(6 bits)* - Indicações especificas;
@@ -70,9 +70,9 @@ Flags TCP (1 bit por flag):
  **FIN** - indica que o transmissor terminou o envio de dados
 
 ### Formulas
-*EstimatedRTT* = (1 - a) * EstimatedRTT + a * SampleRTT   (nomalmente a = 0.125)
-*DevRTT* = (1 - b) * DevRTT + b * |SampleRTT - EstimatedRTT|   (normalmente b = 0.25)
-*TimeoutInterval* = EstimatedRTT + 4 * DevRTT
+*EstimatedRTT*  - (1 - a) * EstimatedRTT + a * SampleRTT   (nomalmente a  - 0.125)
+*DevRTT*  - (1 - b) * DevRTT + b * |SampleRTT - EstimatedRTT|   (normalmente b  - 0.25)
+*TimeoutInterval*  - EstimatedRTT + 4 * DevRTT
 
 **EstimatedRTT** - media movel de peso exponencial onde a importancia de uma amostra antiga decresce exponencialmente;
 **SampleRTT** - medido desde a transmissao de um segmento até a recepção do ACK respetivo;

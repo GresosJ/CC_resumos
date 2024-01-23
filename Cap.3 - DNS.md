@@ -29,19 +29,19 @@
 ## DNS resource records (RR)
 Formato RR: (name, value, type, ttl)
 
-Type = A :
+Type  - A :
  - *name* é o nome de um host:
  - *value* é o endereço IP do host;
 
-Type = MX :
+Type  - MX :
  - *name* é o nome de um domínio;
  - *value* é o nome do servidor de email associado;
 
-Type = NS :
+Type  - NS :
  - *name* é o nome de um domínio;
  - *value* é o nome do host do servidor DNS autoritativo para o dominio;
 
-Type = CNAME :
+Type  - CNAME :
  - *name* é um alias (nome alternativo) para outro nome canónico, www.dn.pt é na realidade dn.sapot.pt;
  - *value* é o nome canónico (real);
 

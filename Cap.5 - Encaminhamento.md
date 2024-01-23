@@ -66,3 +66,16 @@ Seja c(x,v) o custo do caminho entre x e v adjacentes e Vx o grupo de todos os n
 
 dx(y) = min { c(x,v) + dv(y) }, para todos os v em Vx
 
+Sabendo que:
+ - N’ é o grupo de todos os nós da rede e que x є N’
+ - Vx é o grupo de nós adjacentes/vizinhos de x
+ - O nó x conhece o custo para todos os seus vizinhos Cx  - { c(x,v) }, v є Vx
+ - O custo do melhor caminho de x para y é dado por dx(y)  - min { c(x,v) + dv(y) }, y є N’, v є Vx
+ - Seja o custo do melhor caminho de x para y expresso por Dx(y), y є N’
+ - O nó x mantém um vetor de distâncias próprio expresso por DVx  - { Dx(y) }, y є N’
+ - O nó x também mantém os vetores de distâncias dos seus vizinhos DVv  - { Dv(y) }, y є N’, v є Vx
+ - Cada nó x envia periodicamente a sua estimativa DVx a todos os seus vizinhos
+ - Quando um nó x recebe um novo DVv de um dos seus vizinhos atualiza o seu próprio vetor DVx
+ - Em condições normais, a estimativa de Dx(y) converge para o valor de dx(y) ao fim de algum tempo
+ - A troca contínua dos DV mantém a convergência
+
