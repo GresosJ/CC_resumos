@@ -50,15 +50,15 @@ Funções do TCP:
 ### TCP - Datagrama
 ![TCP](img/TCP_data.png)
 
- - <u>Porta Orig/Dest</u> - Nª da porta TCP da aplicação de Origem/Destino;
- - <u>Numero de Sequência</u> - Ordem do primeiro octeto de dados no segmento (se SYN=1, este número é o initial sequence number, ISN);
- - <u>Numero de Ack(32 bits)</u> - O numero de ordem do octeto seguinte na sequência que a entidade TCP espera receber;
- - <u>Comprimento Cabeçalho(4 bits)</u> - Numero de palavras de 32 bits de cabeçãlho;
- - <u>Flags(6 bits)</u> - Indicações especificas;
- - <u>Janela</u> - Numero de octetos que o receptor é capaz de receber (controlo de fluxo);
- - <u>Soma de controlo (16bits)</u> - Soma para a deteção de erros (segm);
- - <u>Apontador urgente</u> - Adicionado ao numero de sequencia da o nº de sequencia do ultimo otecto de dados urgentes;
- - <u>Opções</u> - Especifica caracteristicas opcionais (ex: MSS, timestamp, factor de escala para a janela, etc.);
+ - *Porta Orig/Dest* - Nª da porta TCP da aplicação de Origem/Destino;
+ - *Numero de Sequência* - Ordem do primeiro octeto de dados no segmento (se SYN=1, este número é o initial sequence number, ISN);
+ - *Numero de Ack(32 bits)* - O numero de ordem do octeto seguinte na sequência que a entidade TCP espera receber;
+ - *Comprimento Cabeçalho(4 bits)* - Numero de palavras de 32 bits de cabeçãlho;
+ - *Flags(6 bits)* - Indicações especificas;
+ - *Janela* - Numero de octetos que o receptor é capaz de receber (controlo de fluxo);
+ - *Soma de controlo (16bits)* - Soma para a deteção de erros (segm);
+ - *Apontador urgente* - Adicionado ao numero de sequencia da o nº de sequencia do ultimo otecto de dados urgentes;
+ - *Opções* - Especifica caracteristicas opcionais (ex: MSS, timestamp, factor de escala para a janela, etc.);
 
 ### Flags
 Flags TCP (1 bit por flag):
@@ -70,9 +70,9 @@ Flags TCP (1 bit por flag):
  **FIN** - indica que o transmissor terminou o envio de dados
 
 ### Formulas
-<u>EstimatedRTT</u> = (1 - a) * EstimatedRTT + a * SampleRTT   (nomalmente a = 0.125)
-<u>DevRTT</u> = (1 - b) * DevRTT + b * |SampleRTT - EstimatedRTT|   (normalmente b = 0.25)
-<u>TimeoutInterval</u> = EstimatedRTT + 4 * DevRTT
+*EstimatedRTT* = (1 - a) * EstimatedRTT + a * SampleRTT   (nomalmente a = 0.125)
+*DevRTT* = (1 - b) * DevRTT + b * |SampleRTT - EstimatedRTT|   (normalmente b = 0.25)
+*TimeoutInterval* = EstimatedRTT + 4 * DevRTT
 
 **EstimatedRTT** - media movel de peso exponencial onde a importancia de uma amostra antiga decresce exponencialmente;
 **SampleRTT** - medido desde a transmissao de um segmento até a recepção do ACK respetivo;

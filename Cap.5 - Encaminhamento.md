@@ -37,4 +37,13 @@ Os algoritmos de encaminhamento podem gerir a informação de duas formas distin
    - O processo de computação é iterativo, havendo troca de informação entre vizinhos;
    - Algoritmos de vetor de distância (*Distance Vector-DV*);
 
- 
+## Algoritmo Link State (LS)
+
+Todos os nós da topologia espalham pela rede informação sobre o estado das suas ligações de forma a construirem a base de dados topologica (usando um metodo de inundação fiavel - **Reliable Flooding**):
+ - Inicialmente necessitam de coonhecer apenas os seus vizinhos diretos, para quem enviam a identificação de todos os outros seus vizinhos, bem como o custo das ligações respetivas;
+ - Um nó/encaminhador ao receber esta informação atualiza a sua base de dados topológica e reenvia a informação para todos os seus vizinhos;
+ - Ao fim de algum tempo todos os nós possuem um conhecimento completo da topologia e dos custos de todas as ligações.
+
+Com esta informação, em cada nó/encaminhador, é executado um algoritmo de descoberta dos caminhos de custo mínimo, normalmente o algoritmo de *Dijkstra*.
+
+![Tabela do Link State](img/TabelaLS.png)
