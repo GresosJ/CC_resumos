@@ -79,3 +79,5 @@ Sabendo que:
  - Em condições normais, a estimativa de Dx(y) converge para o valor de dx(y) ao fim de algum tempo
  - A troca contínua dos DV mantém a convergência
 
+![Tabela do Distance Vector](img/TabelaDV.png)
+
