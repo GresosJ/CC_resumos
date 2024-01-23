@@ -25,3 +25,16 @@ Dada uma topologia de rede (um conjunto de encaminhadores com ligações de rede
  - Um "bom" caminho geralmente significa o caminho que minimiza ou maximiza o seu custo total;
 
 ![Tabela de Encaminhamento](img/TabelaEncam.png)
+
+**Tipos de Algoritmos**:
+Os algoritmos de encaminhamento podem gerir a informação de duas formas distintas:
+ - **Global**:
+   - Todos os encaminhadores têm um conhecimento completo da topologia e custo das ligações;
+   - Algoritmos de estado das ligações (*Link State-LS*);
+
+ - **Descentralizada**:
+   - Os encaminhadores só conhcem os vizinhos a que estão fisicamente/logicamente ligados e o custo das ligações respetivas;
+   - O processo de computação é iterativo, havendo troca de informação entre vizinhos;
+   - Algoritmos de vetor de distância (*Distance Vector-DV*);
+
+ 
