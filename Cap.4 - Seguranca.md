@@ -10,6 +10,7 @@
 
 ## Criptografia
 **Criptografia de chave simetrica**: emissor e recetor usam a *mesma* chave;
+
 **Criptografia de chave pública**: uma chave para cifrar (publica) outra para decifrar (privada);
 
 ### Criptografia de chave simetrica
