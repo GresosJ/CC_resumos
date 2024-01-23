@@ -63,8 +63,6 @@ Ao contrario dos algoritmos LS, os algoritmos DV não usam informação global, 
 
 ### Equação de Bellman-Ford
 Seja c(x,v) o custo do caminho entre x e v adjacentes e Vx o grupo de todos os nós vizinhos/adjacentes a x, então o custo do melhor caminho de x para y (ou a rota de custo mínimo entre o nó x e o nó y) é dado por:
-$$
-\begin{align}
-    dx(y) = min { c(x,v) + dv(y) }, para todos os v em Vx
-\end{align}
-$$
+
+dx(y) = min { c(x,v) + dv(y) }, para todos os v em Vx
+
