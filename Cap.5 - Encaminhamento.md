@@ -81,3 +81,27 @@ Sabendo que:
 
 ![Tabela do Distance Vector](img/TabelaDV.png)
 
+### Problemas do DV
+ - **Contagem ao infinito**: o algoritmo DV não consegue distinguir entre uma rota inexistente e uma rota com custo infinito;
+ - **Oscilações**: o algoritmo DV pode sofrer de oscilações quando as métricas são assimétricas (por exemplo, se a métrica refletir a carga nas ligações);
+ - **Partição da rede**: o algoritmo DV não consegue lidar com partições da rede.
+
+Para isso existem duas técnicas:
+ - **Split Horizon**: Se Y aprendeu rota para X com Z, nunca ensina essa rota a Z!
+ - **Poison Reverse**: Se Y aprendeu rota para X com Z, então “mente” a Z anunciando que o custo da sua rota para X é igual a infinito!
+
+O "Split Horizon" é uma técnica de roteamento que impede um roteador de anunciar informações de rota de volta à interface de onde as aprendeu. Isso evita loops na rede. Já o "Poison Reverse" ocorre quando um roteador informa ao vizinho que a rota para um destino é inalcançável, atribuindo um custo infinito. Ambas as práticas visam evitar loops em redes de roteamento dinâmico.
+
+## Reflexões finais comparativas – LS vs DV
+
+ - **Sobrecarga introduzida pela mensagens de controlo**:
+   - Nos algoritmos LS todos os nós necessitam de conhecer o custo de todas as ligações, por isso, sempre que o custo de uma ligação muda, uma mensagem com o novo custo tem que ser enviada para todos os nós para que todos conheçam a nova topologia;
+   - Nos algoritmos DV a mudança do custo de uma ligação só provoca o envio de mensagens se resultar na mudança da tabela de encaminhamento.
+ - **Convergência**:
+   - Os algoritmos LS convergem mais depressa mas, com alguns tipos de métricas dinâmicas estão sujeitos a oscilações;
+   - Os algoritmos DV convergem lentamente, podem apresentar ciclos enquanto não convergem, e é necessário incluir mecanismos para resolver o problema dos loops de eventuais contagens até ao infinito.
+ - **Robutez**:
+   - Nos algoritmos LS, cada encaminhador calcula a sua tabela de encaminhamento usando a base de dados topológica, de forma independente dos outros encaminhadores. Isso confere a este tipo de algoritmos uma robustez maior.
+   - Nos algoritmos DV, se algum encaminhador estiver a calcular mal a sua tabela de encaminhamento, os erros cometidos vão-se propagar aos outros encaminhadores da topologia.
+ - **Recursos computacionais**:
+   - Os algoritmos LS são mais exigentes do que os algoritmos DV, quer em termos de memória (base de dados topológica vs tabela de distâncias), quer em termos de capacidade de processamento.
