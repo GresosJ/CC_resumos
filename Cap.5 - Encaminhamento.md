@@ -56,3 +56,15 @@ Com esta informação, em cada nó/encaminhador, é executado um algoritmo de de
 
 ## Algoritmo Distance Vector (DV)
 
+Ao contrario dos algoritmos LS, os algoritmos DV não usam informação global, são distribuidos, iterativos e assincronos:
+ - Cada nó recebe informação de encaminhamento de algum dos seus vizinhos diretos, recalcula a tabela de encaminhamento e envia essa informação de encaminhamento de volta;
+ - O processo continua até que não haja informação de encaminhamento a ser trocada entre nós vizinhos, i.e., até que a informação de encaminhamento convirja;
+ - Não exige que os nós estejam sincronizados uns com os outros em relação à topologia completa da rede.
+
+### Equação de Bellman-Ford
+Seja c(x,v) o custo do caminho entre x e v adjacentes e Vx o grupo de todos os nós vizinhos/adjacentes a x, então o custo do melhor caminho de x para y (ou a rota de custo mínimo entre o nó x e o nó y) é dado por:
+$$
+\begin{align}
+    dx(y) = min { c(x,v) + dv(y) }, para todos os v em Vx
+\end{align}
+$$
