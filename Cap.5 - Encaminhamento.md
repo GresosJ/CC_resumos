@@ -24,3 +24,4 @@ Dada uma topologia de rede (um conjunto de encaminhadores com ligações de rede
  - O custo das ligações pode ser estabelecido em função de varios criterios (individualmente ou em conjunto), como por exemplo, o atraso, a capacidade/ritmo nominal, do nivel de congestão, do custo operacional, da distancia, etc.;
  - Um "bom" caminho geralmente significa o caminho que minimiza ou maximiza o seu custo total;
 
+![Tabela de Encaminhamento](TabelaEncam.png)
