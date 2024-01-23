@@ -47,3 +47,12 @@ Todos os nós da topologia espalham pela rede informação sobre o estado das su
 Com esta informação, em cada nó/encaminhador, é executado um algoritmo de descoberta dos caminhos de custo mínimo, normalmente o algoritmo de *Dijkstra*.
 
 ![Tabela do Link State](img/TabelaLS.png)
+
+### Escalabilidade e Oscilações
+ - Esforço/Complexidade do algoritmo para N nós da rede é O(N2), portanto, a implementação dos algoritmos LS têm alguns problemas de escalabilidade;
+ - Na presença de métricas assimétricas que espelham o estado da rede (por exemplo, se a métrica refletir a carga nas ligações) o cálculo da melhor rota sofre oscilações (ver exemplo abaixo em que a métrica reflete a quantidade de dados transmitidos).
+
+![Escalabilidade e Oscilações do LS](img/IssueLS.png)
+
+## Algoritmo Distance Vector (DV)
+
